@@ -4,11 +4,11 @@
   &__header {
     text-align: center;
     padding: 2rem 0;
-    background-color: $secondary-color;
+    background-color: variables.$secondary-color;
 
     &__title {
       font-size: 2rem;
-      color: $primary-color;
+      color: variables.$primary-color;
     }
   }
 
@@ -24,7 +24,7 @@
 
     .participant-card {
       background-color: white;
-      border: 1px solid $secondary-color;
+      border: 1px solid variables.$secondary-color;
       border-radius: 10px;
       -webkit-border-radius: 10px;
       -moz-border-radius: 10px;
@@ -61,7 +61,7 @@
       &__name {
         margin: 0.5rem 0;
         font-size: 1.2rem;
-        color: $primary-color;
+        color: variables.$primary-color;
       }
 
       &__specialy {
