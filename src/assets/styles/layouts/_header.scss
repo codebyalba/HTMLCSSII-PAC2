@@ -1,0 +1,60 @@
+@use "../variables";
+
+
+.header {
+  background-color: #fff;
+  color           : variables.$text-color;
+  padding         : 1rem;
+  display         : flex;
+  flex-direction  : column;
+  align-items     : center;
+
+  &__logo img {
+    max-width    : 100px;
+    margin-bottom: 1rem;
+  }
+
+  &__nav ul {
+    list-style    : none;
+    display       : flex;
+    flex-direction: column;
+    gap           : 0.5rem;
+    padding       : 0;
+    margin        : 0;
+
+    li a {
+      padding        : 0.5rem 1rem;
+      border-radius  : 0.5rem;
+      color          : variables.$text-color;
+      font-weight    : bold;
+      text-decoration: none;
+      transition     : background 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        background: variables.$primary-color;
+        color     : #fff;
+        transform : scale(1.05);
+      }
+    }
+  }
+
+  @media (min-width: $bp-tablet) {
+    &__nav ul {
+      flex-direction : row;
+      gap            : 1.5rem;
+      justify-content: center;
+      width          : 100%;
+      margin-top     : 1rem;
+    }
+  }
+
+  @media (min-width: $bp-desktop) {
+    &__nav ul {
+      gap: 2rem;
+    }
+  }
+}
+
+.uoc-logo {
+  filter: grayscale(100%);
+}
