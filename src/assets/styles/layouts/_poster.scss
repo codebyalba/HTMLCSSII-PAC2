@@ -10,7 +10,7 @@
 
   &__header {
     grid-column: 1 / -1;
-    background-color: $primary-color;
+    background-color: variables.$primary-color;
     color: white;
     padding: 2rem 0;
   }
