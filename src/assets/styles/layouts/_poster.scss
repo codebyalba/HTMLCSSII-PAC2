@@ -5,14 +5,16 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto auto;
   gap: 1rem;
+
   padding: 2rem;
+  
   text-align: center;
 
   &__header {
     grid-column: 1 / -1;
-    background-color: variables.$primary-color;
-    color: white;
     padding: 2rem 0;
+    color: white;
+    background-color: variables.$primary-color;
   }
 
   &__main {
@@ -28,19 +30,20 @@
   &__section {
     &--image {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
 
       img {
         max-width: 100%;
         height: auto;
         border-radius: 10px;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -ms-border-radius: 10px;
-        -o-border-radius: 10px;
+        border-radius: 10px;
+        border-radius: 10px;
+        border-radius: 10px;
+        border-radius: 10px;
       }
     }
+
     &--cta {
       grid-column: 1 / -1;
     }
