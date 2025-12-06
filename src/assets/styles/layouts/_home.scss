@@ -99,7 +99,7 @@ section {
         width: 70%;
         border-radius: 2px;
         transition: all 0.3s ease;
-        background-color: variables.$primary-color;
+        background-color: variables.$font-color;
       }
     }
   }
@@ -253,7 +253,7 @@ section {
     transition: max-height 0.3s ease;
 
     &.active {
-      max-height: 500px; // ajusta segons el nombre d'enllaços
+      max-height: 500px;
     }
 
     &--list {
@@ -264,3 +264,45 @@ section {
     }
   }
 }
+/* MEDIA QUERIES PER FOOTER */
+@media (max-width: variables.$bp-tablet) {
+
+  /* FG FOOTER */
+  .fg__footer--container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .fg__footer--nav--list {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0;
+  }
+
+  /* UOC FOOTER */
+  .uoc__footer--container {
+    flex-direction: column; // passa a columna
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 0;
+  }
+
+  .uoc__footer--brand {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .uoc__footer--logo {
+    max-width: 120px; // més petit en mobil
+  }
+
+  .uoc__footer--text {
+    font-size: 0.75rem;
+    white-space: normal;
+    text-align: center;
+    padding: 0;
+  }
+}
+
