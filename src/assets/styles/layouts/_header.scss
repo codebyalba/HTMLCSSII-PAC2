@@ -45,7 +45,7 @@
     }
   }
 
-  @media (min-width: $bp-tablet) {
+  @media (min-width: variables.$bp-tablet) {
     &__nav ul {
       flex-direction : row;
       gap            : 1.5rem;
@@ -56,7 +56,7 @@
     }
   }
 
-  @media (min-width: $bp-desktop) {
+  @media (min-width: variables.$bp-desktop) {
     &__nav ul {
       gap: 2rem;
     }
