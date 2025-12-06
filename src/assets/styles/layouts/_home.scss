@@ -21,14 +21,15 @@ body {
 }
 
 .uoc__header {
-  background-color: variables.$primary-color;
   padding: 1rem 2rem;
   color: white;
+  background-color: variables.$primary-color;
 
   &--container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -41,15 +42,17 @@ body {
     &--list {
       display: flex;
       gap: 1.5rem;
-      list-style: none;
+
       margin: 0;
       padding: 0;
+
+      list-style: none;
     }
 
     &--item a {
+      font-weight: 500;
       color: white;
       text-decoration: none;
-      font-weight: 500;
 
       &:hover {
         text-decoration: underline;
@@ -72,7 +75,6 @@ body {
 
 .uoc-logo {
   display: block;
-
   max-width: 200px;
   height: auto;
   margin: 0 auto 1.5rem;
@@ -96,7 +98,8 @@ body {
 .uoc-footer {
   margin-top: auto;
   padding: 1rem 0;
+
   font-size: 0.75rem;
-  text-align: center;
   color: variables.$font-color;
+  text-align: center;
 }
