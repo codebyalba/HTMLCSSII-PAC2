@@ -15,12 +15,30 @@
   console.log(`Hello, ${university}!`);
 })();
 
+/** Pàgina actual */
 const currentPage = window.location.pathname.split("/").pop();
 
-const navLinks = document.querySelectorAll(".uoc__header--item a");
+/** Seleccionar links del header */
+const navLinks = document.querySelectorAll(".fg__header--nav--item a");
 
+/** Afegir classe 'active' al link corresponent */
 navLinks.forEach((link) => {
-  if (link.getAttribute("href") === currentPage) {
+  if (link.href.includes(currentPage)) {
     link.classList.add("active");
+  }
+});
+
+/** Menu toggle en mobile */
+const toggle = document.querySelector(".fg__header--toggle");
+const nav = document.querySelector(".fg__header--nav");
+
+toggle?.addEventListener("click", () => {
+  nav.classList.toggle("active");
+});
+
+/** Tancar el menú si es canvia de mida a desktop */
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 768) {
+    nav.classList.remove("active");
   }
 });
