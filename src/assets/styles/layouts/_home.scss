@@ -38,6 +38,28 @@ body {
     max-height: 50px;
   }
 
+  &--toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: white;
+      border-radius: 2px;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      -ms-border-radius: 2px;
+      -o-border-radius: 2px;
+    }
+  }
+
   &--nav {
     &--list {
       display: flex;
@@ -56,6 +78,11 @@ body {
 
       &:hover {
         text-decoration: underline;
+      }
+
+      &:active {
+        border-bottom: 2px solid variables.$primary-color;
+        font-weight: 700;
       }
     }
   }
@@ -102,4 +129,29 @@ body {
   font-size: 0.75rem;
   color: variables.$font-color;
   text-align: center;
+}
+
+@media (max-width: variables.$bp-tablet) {
+  .uoc__header--toggle {
+    display: flex;
+  }
+
+  .uoc__header--nav {
+    display: none;
+    width: 100%;
+    background-color: variables.$primary-color;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    &-list {
+      flex-direction: column;
+      gap: 0;
+      padding: 1rem 2rem;
+
+      & a {
+        padding: 0.75rem 0;
+      }
+    }
+  }
 }
