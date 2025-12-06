@@ -1,30 +1,40 @@
 @use "../variables";
 
+/* RESET */
 * {
   box-sizing: border-box;
 }
 
+/* BODY */
 body {
   display: flex;
   flex-direction: column;
 
-  min-height: 100vh;
+  //min-height: 100vh;
   margin: 0;
 
-  // padding: 2rem;
+  padding: 0;
 
   font-family: variables.$font-family-sans-serif;
   font-size: 16px;
   line-height: 24px;
   color: variables.$font-color;
 
-  background-color: variables.$bg-color;
+  //background-color: variables.$bg-color;
 }
 
-.uoc__header {
-  padding: 1rem 2rem;
+main,
+header,
+footer,
+section {
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+.fg__header {
+  padding: 0 2rem;
   color: white;
-  background-color: variables.$primary-color;
 
   &--container {
     display: flex;
@@ -36,55 +46,29 @@ body {
   }
 
   &--logo img {
-    max-height: 50px;
-  }
-
-  &--toggle {
-    cursor: pointer;
-
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-
-    width: 25px;
-    height: 20px;
-    border: none;
-
-    background: none;
-
-    span {
-      display: block;
-
-      width: 100%;
-      height: 3px;
-      border-radius: 2px;
-      border-radius: 2px;
-      border-radius: 2px;
-      border-radius: 2px;
-      border-radius: 2px;
-
-      background-color: white;
-    }
+    max-height: 100px;
   }
 
   &--nav {
+    display: flex;
+    gap: 2rem;
+
     &--list {
       display: flex;
-      gap: 1.5rem;
-
+      flex-direction: row;
+      gap: 2rem;
+      list-style: none;
       margin: 0;
       padding: 0;
-
-      list-style: none;
     }
 
     &--item a {
-      font-weight: 500;
-      color: white;
       text-decoration: none;
+      font-weight: 500;
+      font-family: "DM Sans", sans-serif;
 
       &:hover {
-        text-decoration: underline;
+        border-bottom: 2px solid variables.$primary-color;
       }
 
       &:active {
@@ -92,9 +76,29 @@ body {
         font-weight: 700;
       }
     }
+
+    &--toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: white;
+        border-radius: 2px;
+      }
+    }
   }
 }
 
+/* GENERIC CONTAINER UOC (CARD STYLE) */
 .uoc-container {
   max-width: 800px;
   margin: auto;
@@ -129,30 +133,118 @@ body {
   }
 }
 
-.uoc__footer {
+/* FOOTER PRINCIPAL FG */
+.fg__footer {
   margin-top: auto;
-  padding: 1rem 0;
-
-  font-size: 0.75rem;
-  color: variables.$font-color;
+  padding: 0;
+  font-size: 1rem;
   text-align: center;
+  background-color: #222;
+  color: white;
+
+  &--container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &--logo img {
+    max-height: 100px;
+  }
+
+  &--nav {
+    &--list {
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    &--item a {
+      font-weight: 500;
+      color: white;
+      text-decoration: none;
+      &:hover {
+        border-bottom: 2px solid variables.$primary-color;
+      }
+      &:active {
+        border-bottom: 2px solid variables.$primary-color;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &--socials {
+    display: flex;
+    gap: 1rem;
+
+    img {
+      width: 24px;
+      height: 24px;
+      filter: invert(1);
+    }
+  }
 }
 
+/* FOOTER UOC */
+.uoc__footer {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+  &--container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222222;
+  }
+
+  /* LOGO + TEXT EN LÍNIA */
+  &--brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; // separació lleu
+  }
+
+  .uoc__footer--logo {
+    max-width: 150px;
+    //🔥méspetitheight: auto;
+    margin: 0;
+    filter: grayscale(100%) brightness(0) invert(1);
+  }
+
+  .uoc__footer--text {
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 2rem 0;
+    color: white;
+    white-space: nowrap;
+  }
+}
+
+/* MEDIA QUERIES */
 @media (max-width: variables.$bp-tablet) {
-  .uoc__header--toggle {
+  .fg__header--toggle {
     display: flex;
   }
 
-  .uoc__header--nav {
+  .fg__header--nav {
+    max-height: 0;
+    flex-direction: column;
+    width: 100%;
     position: absolute;
     top: 100%;
     left: 0;
-
-    display: none;
-
-    width: 100%;
-
     background-color: variables.$primary-color;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    &.active {
+      display: flex;
+    }
 
     &-list {
       flex-direction: column;
