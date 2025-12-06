@@ -188,10 +188,15 @@ section {
     display: flex;
     gap: 1rem;
 
-    img {
-      width: 24px;
-      height: 24px;
-      filter: invert(1);
+    a {
+      color: white; // color de la icona
+      font-size: 1.5rem;
+      transition: transform 0.25s ease, color 0.25s ease;
+  
+      &:hover {
+        transform: scale(1.1);
+        color: variables.$primary-color; // color de la icona
+      }
     }
   }
 }
