@@ -11,7 +11,7 @@
     "build": "npm-run-all clean parcel:build",
     "test": "echo 'Everything is working as expected ✅\nStart working on your project by running \\033[1mnpm run dev\\033[0m'",
     "lint": "stylelint \"src/assets/styles/**/*.scss\"",
-    "lint:css": "stylelint \"**/*.{css,scss}\" --fix"
+    "lint:css": "stylelint \"src/assets/styles/**/*.scss\" --fix"
   },
   "targets": {
     "web": {

@@ -1,6 +1,7 @@
 {
   "extends": ["stylelint-config-standard-scss", "stylelint-config-clean-order"],
   "plugins": ["stylelint-scss", "stylelint-selector-bem-pattern"],
+  "ignoreFiles": ["dist/**/*.css"],
   "rules": {
     "at-rule-no-unknown": null,
     "scss/at-rule-no-unknown": true,
