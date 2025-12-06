@@ -2,12 +2,15 @@
 
 
 .header {
-  background-color: #fff;
-  color           : variables.$text-color;
-  padding         : 1rem;
   display         : flex;
   flex-direction  : column;
   align-items     : center;
+
+  padding         : 1rem;
+
+  color           : variables.$text-color;
+
+  background-color: #fff;
 
   &__logo img {
     max-width    : 100px;
@@ -15,25 +18,29 @@
   }
 
   &__nav ul {
-    list-style    : none;
     display       : flex;
     flex-direction: column;
     gap           : 0.5rem;
-    padding       : 0;
+
     margin        : 0;
+    padding       : 0;
+
+    list-style    : none;
 
     li a {
       padding        : 0.5rem 1rem;
       border-radius  : 0.5rem;
-      color          : variables.$text-color;
+
       font-weight    : bold;
+      color          : variables.$text-color;
       text-decoration: none;
+
       transition     : background 0.3s ease, transform 0.3s ease;
 
       &:hover {
-        background: variables.$primary-color;
-        color     : #fff;
         transform : scale(1.05);
+        color     : #fff;
+        background: variables.$primary-color;
       }
     }
   }
@@ -43,6 +50,7 @@
       flex-direction : row;
       gap            : 1.5rem;
       justify-content: center;
+
       width          : 100%;
       margin-top     : 1rem;
     }
