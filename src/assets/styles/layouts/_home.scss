@@ -1,4 +1,5 @@
 @use "../variables";
+@use "sass:color";
 
 /* RESET */
 * {
@@ -72,7 +73,7 @@ section {
         border-bottom: 2px solid variables.$primary-color;
       }
 
-      &:active {
+      &.active {
         border-bottom: 2px solid variables.$primary-color;
         font-weight: 700;
       }
@@ -82,18 +83,23 @@ section {
       display: none;
       flex-direction: column;
       justify-content: space-between;
-      width: 4rem;
-      height: 3rem;
-      // background: none;
+      width: 3.5rem;
+      height: 2rem;
+      padding: 0.3rem;
+      background-color: white;
       border: none;
       cursor: pointer;
       border-radius: 10px;
+      z-index: 1000;
+      align-items: center;
+
       span {
         display: block;
-        height: 2rem;
-        width: 100%;
-        background-color: variables.$primary-color; // visible sobre fons primari
-        color: variables.$primary-color;
+        height: 4px;
+        width: 70%;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        background-color: variables.$primary-color;
       }
     }
   }
@@ -171,7 +177,7 @@ section {
       &:hover {
         border-bottom: 2px solid variables.$primary-color;
       }
-      &:active {
+      &.active {
         border-bottom: 2px solid variables.$primary-color;
         font-weight: 700;
       }

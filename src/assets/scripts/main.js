@@ -16,14 +16,14 @@
 })();
 
 /** Pàgina actual */
-const currentPage = window.location.pathname.split("/").pop();
-
-/** Seleccionar links del header */
 const navLinks = document.querySelectorAll(".fg__header--nav--item a");
+const path = window.location.pathname.split("/").pop().toLowerCase() || "index.html";
 
-/** Afegir classe 'active' al link corresponent */
 navLinks.forEach((link) => {
-  if (link.href.includes(currentPage)) {
+  const linkPath = link.getAttribute("href").split("/").pop().toLowerCase();
+
+  // Afegir 'active' si coincideix o si estem a la home
+  if (linkPath === path || (path === "" && linkPath === "index.html")) {
     link.classList.add("active");
   }
 });
