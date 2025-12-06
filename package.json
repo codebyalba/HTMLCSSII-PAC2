@@ -10,7 +10,8 @@
     "dev": "npm-run-all clean parcel:serve",
     "build": "npm-run-all clean parcel:build",
     "test": "echo 'Everything is working as expected ✅\nStart working on your project by running \\033[1mnpm run dev\\033[0m'",
-    "lint": "stylelint \"src/assets/styles/**/*.scss\""
+    "lint": "stylelint \"src/assets/styles/**/*.scss\"",
+    "lint:css": "stylelint \"**/*.{css,scss}\" --fix"
   },
   "targets": {
     "web": {
@@ -45,11 +46,14 @@
     "rimraf": "^6.0.1",
     "sharp": "^0.33.5",
     "stylelint": "^16.26.1",
+    "stylelint-config-clean-order": "^8.0.0",
     "stylelint-config-standard": "^39.0.1",
     "stylelint-config-standard-scss": "^16.0.0",
+    "stylelint-order": "^7.0.0",
     "stylelint-scss": "^6.13.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^7.0.1"
+    "@fortawesome/fontawesome-free": "^7.0.1",
+    "stylelint-selector-bem-pattern": "^4.0.1"
   }
 }
