@@ -1,19 +1,23 @@
 {
-    "extends": "stylelint-config-standard-scss",
-    "plugins": [
-      "stylelint-scss"
-    ],
-    "rules": {
-      "at-rule-no-unknown": null,
-      "scss/at-rule-no-unknown": true,
-      "value-keyword-case": "lower",
-      "color-function-notation": "modern",
-      "alpha-value-notation": "percentage",
-      "media-query-no-invalid": true,
-      "no-empty-source": null,
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-clean-order"],
+  "plugins": ["stylelint-scss", "stylelint-selector-bem-pattern"],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "value-keyword-case": "lower",
+    "color-function-notation": "modern",
+    "alpha-value-notation": "percentage",
+    "media-query-no-invalid": true,
+    "no-empty-source": null,
 
-      "selector-class-pattern": "^[a-z0-9]+(__[a-z0-9]+)?(--[a-z0-9]+)?$",
-      "selector-max-compound-selectors": 3
+    "selector-class-pattern": "^[a-z0-9]+(__[a-z0-9]+)?(--[a-z0-9]+)?$",
+    "selector-max-compound-selectors": 3,
+
+    "plugin/selector-bem-pattern": {
+      "preset": "bem",
+      "componentSelectors": {
+        "initial": "^\\.([a-z]+(?:-[a-z]+)*(?:__[a-z]+(?:-[a-z]+)*)?(?:--[a-z]+(?:-[a-z]+)*)?)$"
+      }
     }
   }
-  
+}
