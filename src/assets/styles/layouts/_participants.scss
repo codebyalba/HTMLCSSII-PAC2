@@ -2,8 +2,8 @@
 
 .participants {
   &__header {
-    text-align: center;
     padding: 2rem 0;
+    text-align: center;
     background-color: variables.$secondary-color;
 
     &__title {
@@ -19,43 +19,47 @@
   &__grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
     gap: 2rem;
+    justify-content: space-around;
 
     .participant-card {
-      background-color: white;
+      width: 220px;
+      padding: 1rem;
       border: 1px solid variables.$secondary-color;
       border-radius: 10px;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-      padding: 1rem;
-      width: 220px;
+      border-radius: 10px;
+      border-radius: 10px;
+      border-radius: 10px;
+      border-radius: 10px;
+
       text-align: center;
+
+      background-color: white;
+
       transition: transform 0.3s ease;
-      -webkit-transition: transform 0.3s ease;
-      -moz-transition: transform 0.3s ease;
-      -ms-transition: transform 0.3s ease;
-      -o-transition: transform 0.3s ease;
+      transition: transform 0.3s ease;
+      transition: transform 0.3s ease;
+      transition: transform 0.3s ease;
+      transition: transform 0.3s ease;
 
       &:hover {
         transform: translateY(-5px);
-        -webkit-transform: translateY(-5px);
-        -moz-transform: translateY(-5px);
-        -ms-transform: translateY(-5px);
-        -o-transform: translateY(-5px);
+        transform: translateY(-5px);
+        transform: translateY(-5px);
+        transform: translateY(-5px);
+        transform: translateY(-5px);
       }
 
       &__image {
         width: 100%;
         height: 180px;
-        object-fit: cover;
         border-radius: 10px;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -ms-border-radius: 10px;
-        -o-border-radius: 10px;
+        border-radius: 10px;
+        border-radius: 10px;
+        border-radius: 10px;
+        border-radius: 10px;
+
+        object-fit: cover;
       }
 
       &__name {
