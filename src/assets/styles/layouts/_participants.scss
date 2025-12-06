@@ -1,65 +1,122 @@
 @use "../variables";
 
+.participants__header,
+.participants__main {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: variables.$font-color;
+}
+
 .participants {
   &__header {
     padding: 2rem 0;
     text-align: center;
-    background-color: variables.$secondary-color;
+  }
 
     &__title {
       font-size: 2rem;
-      color: variables.$primary-color;
+      color: variables.$font-color;
+      letter-spacing: 1px;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 4px;
+        background: variables.$primary-color;
+        border-radius: 2px;
+        margin: 0.5rem auto 0;
+      }
     }
-  }
 
   &__main {
     padding: 2rem;
   }
 
   &__grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     gap: 2rem;
-    justify-content: space-around;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 
     .participant-card {
-      width: 220px;
-      padding: 1rem;
-      border: 1px solid variables.$secondary-color;
-      border-radius: 10px;
-
+      background-color: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
       text-align: center;
-
-      background-color: white;
-
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
 
       &:hover {
         transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
       }
 
-      &__image {
+      img {
         width: 100%;
-        height: 180px;
-        border-radius: 10px;
+        height: 250px;
         object-fit: cover;
+        display: block;
+        filter: grayscale(100%);
+        -webkit-filter: grayscale(100%);
+}
+    
+      h2.participant-card__name {
+        color: variables.$font-color;
+        border-bottom: 2px solid variables.$primary-color;
+        display: inline-block;
+        padding-bottom: 0.3rem;
       }
-
-      &__name {
-        margin: 0.5rem 0;
-        font-size: 1.2rem;
-        color: variables.$primary-color;
-      }
-
-      &__specialy {
+    
+      p.participant-card__specialty {
         font-size: 1rem;
-        color: darkgray;
+        font-weight: 400;
+        color: variables.$font-color;
+        padding: 0 1rem 1rem;
       }
     }
   }
 }
 
-@container (max-width: 600px) {
+.participant-card__more {
+  background: #f8f8f8; // fons clar i elegant
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: variables.$font-color;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  font-style: italic;
+
+  &:hover {
+    transform: translateY(0); // sense efecte hover exagerat
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+
+  &--content {
+    color: variables.$primary-color;
+  }
+
+  img {
+    display: none; // no hi ha imatge
+  }
+}
+
+
+
+@container (max-width: 768px) {
+  .participants__title {
+    font-size: 2rem;
+  }
+
   .participants__grid {
     flex-direction: column;
     align-items: center;
@@ -67,5 +124,8 @@
 
   .participant-card {
     width: 90%;
+  }
+  .participant-card img {
+    height: 200px;
   }
 }
