@@ -1,239 +1,249 @@
 @use "../variables";
 @use "sass:color";
 
-/* RESET */
-* {
-  box-sizing: border-box;
-}
-
-/* BODY */
-body {
-  display: flex;
-  flex-direction: column;
-
-  margin: 0;
-  padding: 0;
-
-  font-family: variables.$font-family-sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  color: variables.$font-color;
-}
-
-main,
-header,
-footer,
-section {
-  margin: 0;
-  padding: 0;
-}
-
-/* ================= HEADER ================= */
-.header {
-  padding: 0 2rem;
-  color: white;
-
-  &__container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    max-width: 1200px;
-    margin: 0 auto;
+/* ================= LAYER: LAYOUT ================= */
+@layer layout {
+  /* RESET */
+  * {
+    box-sizing: border-box;
   }
 
-  &__logo img {
-    max-height: 100px;
+  body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family: variables.$font-family-sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: variables.$font-color;
   }
 
-  &__nav {
-    display: flex;
-    gap: 2rem;
-  
-    &-list {
+  main, header, footer, section {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ================= HEADER ================= */
+  .header {
+    padding: 0 2rem;
+    color: white;
+
+    &__container {
       display: flex;
-      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    &__logo img {
+      max-height: 100px;
+    }
+
+    &__nav {
+      display: flex;
       gap: 2rem;
 
-      margin: 0;
-      padding: 0;
+      &-list {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
 
-      list-style: none;
-  
-      &-item {
-        a {
-          border-bottom: 2px solid transparent;
+        & > .header__nav-item {
+          /* Links del header */
+          a {
+            border-bottom: 2px solid transparent;
+            font-family: "DM Sans", sans-serif;
+            font-weight: 500;
+            color: variables.$font-color;
+            text-decoration: none;
+            transition: border-color 0.3s ease;
 
-          /* Regles generals */
-          font-family: "DM Sans", sans-serif;
-          font-weight: 500;
-          color: variables.$font-color;
-          text-decoration: none;
+            /* Hover */
+            @at-root #{&}:hover {
+              border-bottom-color: variables.$primary-color;
+              color: variables.$primary-color;
+              outline: none;
+            }
+        
+            /* Focus */
+            @at-root #{&}:focus {
+              border-bottom-color: variables.$primary-color;
+              color: variables.$primary-color;
+              outline: none;
+            }
+          }
 
-          transition: border-color 0.3s ease;
+          /* Active */
+          @at-root #{&} a.active {
+            border-bottom-color: variables.$primary-color;
+            font-weight: 700;
+          }
         }
-  
-        /* Utilitzant @at-root per evitar no-descending-specificity */
-        @at-root #{&} a.active {
-          border-bottom-color: variables.$primary-color;
-          font-weight: 700;
-        }
-  
-        @at-root #{&} a:hover {
-          border-bottom-color: variables.$primary-color;
-        }
+      }
+    }
+
+    &__toggle {
+      cursor: pointer;
+      z-index: 1000;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 3.5rem;
+      height: 2rem;
+      padding: 0.3rem;
+      border: none;
+      border-radius: 10px;
+      background-color: white;
+
+      span {
+        display: block;
+        width: 70%;
+        height: 4px;
+        border-radius: 2px;
+        background-color: variables.$font-color;
+        transition: all 0.3s ease;
       }
     }
   }
 
-  &__toggle {
-    cursor: pointer;
-
-    z-index: 1000;
-
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-
-    width: 3.5rem;
-    height: 2rem;
-    padding: 0.3rem;
-    border: none;
-    border-radius: 10px;
-
-    background-color: white;
-
-    span {
-      display: block;
-
-      width: 70%;
-      height: 4px;
-      border-radius: 2px;
-
-      background-color: variables.$font-color;
-
-      transition: all 0.3s ease;
-    }
-  }
-}
-
-/* ================= FOOTER BLOCK ================= */
-.footer {
-  margin-top: auto;
-  padding: 0;
-
-  font-size: 1rem;
-  color: white;
-  text-align: center;
-
-  background-color: #222;
-
-  &__container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  &__logo img {
-    max-height: 100px;
-  }
-
-  &__nav {
-    &-list {
-      display: flex;
-      gap: 1.5rem;
-
-      margin: 0;
-      padding: 0;
-
-      list-style: none;
-
-      &-item {
-        a {
-          border-bottom: 2px solid transparent;
-
-          font-weight: 500;
-          color: white;
-          text-decoration: none;
-
-          transition: border-color 0.3s ease;
-        }
-
-        /* Pseudoclases fora del bloc `a` per evitar no-descending-specificity */
-        @at-root #{&} a.active {
-          border-bottom-color: variables.$primary-color;
-          font-weight: 700;
-        }
-
-        @at-root #{&} a:hover {
-          border-bottom-color: variables.$primary-color;
-        }
-      }
-    }
-  }
-
-  &__socials {
-    display: flex;
-    gap: 1rem;
-
-    a {
-      font-size: 1.5rem;
-      color: white;
-      transition: transform 0.25s ease, color 0.25s ease;
-    }
-
-    @at-root #{&} a:hover {
-      transform: scale(1.1);
-      color: variables.$primary-color;
-    }
-  }
-}
-
-/* ================= FOOTER UOC ================= */
-.uoc {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-
-  &__container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #222;
-  }
-
-  &__brand {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-  }
-
-  &__logo {
-    max-width: 150px;
-    margin: 0;
-    filter: grayscale(100%) brightness(0) invert(1);
-  }
-
-  &__text {
-    margin: 0;
-    padding: 2rem 0;
-
-    font-size: 0.8rem;
+  /* ================= FOOTER ================= */
+  .footer {
+    margin-top: auto;
+    padding: 0;
+    font-size: 1rem;
     color: white;
-    white-space: nowrap;
+    text-align: center;
+    background-color: #222;
+
+    &__container {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    &__logo img {
+      max-height: 100px;
+    }
+
+    &__nav {
+      &-list {
+        display: flex;
+        gap: 1.5rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        & > .footer__nav-item {
+          a {
+            font-weight: 500;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            /* Hover */
+            @at-root #{&}:hover {
+              border-bottom-color: variables.$primary-color;
+              color: variables.$primary-color;
+              outline: none;
+            }
+        
+            /* Focus */
+            @at-root #{&}:focus {
+              border-bottom-color: variables.$primary-color;
+              color: variables.$primary-color;
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+
+    &__socials {
+      display: flex;
+      gap: 1rem;
+
+      a {
+        font-size: 1.5rem;
+        color: white;
+        transition: transform 0.25s ease, color 0.25s ease;
+
+        /* Hover */
+        @at-root #{&}:hover {
+          border-bottom-color: variables.$primary-color;
+          color: variables.$primary-color;
+          outline: none;
+        }
+    
+        /* Focus */
+        @at-root #{&}:focus {
+          border-bottom-color: variables.$primary-color;
+          color: variables.$primary-color;
+          outline: none;
+        }
+      }
+    }
   }
+
+  /* ================= UOC ================= */
+  .uoc {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #222;
+    }
+
+    &__brand {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    &__logo {
+      max-width: 150px;
+      margin: 0;
+      filter: grayscale(100%) brightness(0) invert(1);
+    }
+
+    &__text {
+      margin: 0;
+      padding: 2rem 0;
+      font-size: 0.8rem;
+      color: white;
+      white-space: nowrap;
+    }
+  }
+}
+
+/* ================= LAYER: UTILITIES ================= */
+@layer utilities {
+  .text-center { text-align: center; }
+  .mb-2 { margin-bottom: 2rem; }
+  .flex-center { display: flex; justify-content: center; align-items: center; }
+}
+
+/* ================= LAYER: OVERRIDES ================= */
+@layer overrides {
+  /* Pots afegir més overrides globals si cal */
 }
 
 /* ================= MEDIA QUERIES ================= */
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .header {
-    &__toggle {
-      display: flex;
-    }
+    &__toggle { display: flex; }
 
     &__container {
       flex-direction: column;
@@ -244,13 +254,10 @@ section {
 
     &__nav {
       position: relative;
-
       overflow: hidden;
       flex-direction: column;
-
       width: 100%;
       max-height: 0;
-
       transition: max-height 0.3s ease;
 
       &-list {
@@ -261,9 +268,7 @@ section {
       }
     }
 
-    &__nav.active {
-      max-height: 500px;
-    }
+    &__nav.active { max-height: 500px; }
   }
 
   .footer {
@@ -276,7 +281,7 @@ section {
     &__nav-list {
       flex-direction: column;
       gap: 0.75rem;
-      padding: 0;
+      align-items: center;
     }
   }
 
@@ -294,9 +299,7 @@ section {
       align-items: center;
     }
 
-    &__logo {
-      max-width: 120px;
-    }
+    &__logo { max-width: 120px; }
 
     &__text {
       padding: 0;

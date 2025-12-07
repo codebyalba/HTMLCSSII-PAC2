@@ -20,7 +20,7 @@ let currentPage = window.location.pathname.split("/").pop();
 if (currentPage === "") currentPage = "index.html";
 
 /** Seleccionar links del header */
-const navLinks = document.querySelectorAll(".fg__header--nav--item a");
+const navLinks = document.querySelectorAll(".header__nav-item a");
 
 navLinks.forEach(link => {
   // Només el fitxer del href
@@ -32,8 +32,8 @@ navLinks.forEach(link => {
 });
 
 /** Menu toggle en mobile */
-const toggle = document.querySelector(".fg__header--toggle");
-const nav = document.querySelector(".fg__header--nav");
+const toggle = document.querySelector(".header__toggle");
+const nav = document.querySelector(".header__nav");
 
 toggle?.addEventListener("click", () => {
   nav.classList.toggle("active");
