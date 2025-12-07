@@ -107,6 +107,13 @@
       }
     }
     
+    &-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: rgb(0 0 0 / 75%);
+    }
+
 
     &--image {
       display: flex;

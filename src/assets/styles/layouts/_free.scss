@@ -4,6 +4,11 @@
 $gold: #d4af37;
 $wine: #7a1f2a;
 
+.btn, .card, .navbar, .form-control {
+  all: unset; /* elimina estils de Bootstrap */
+  box-sizing: border-box;
+}
+
 .free {
   font-family: 'Playfair Display', serif;
 
