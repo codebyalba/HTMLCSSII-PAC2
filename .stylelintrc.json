@@ -11,7 +11,8 @@
     "media-query-no-invalid": true,
     "no-empty-source": null,
 
-    "selector-class-pattern": "^[a-z0-9]+(__[a-z0-9]+)?(--[a-z0-9]+)?$",
+    "selector-class-pattern": "^[a-z0-9]+([-a-z0-9]+)?(__[-a-z0-9]+)?(--[-a-z0-9]+)?$",
+
     "selector-max-compound-selectors": 3,
 
     "plugin/selector-bem-pattern": {
